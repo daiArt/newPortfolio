@@ -1,0 +1,587 @@
+@mixin flex($justify) {
+    display: flex;
+    align-items: center;
+    justify-content: $justify;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+
+
+    body {
+        background: #F4F4F4;
+        
+        img {
+            width: 100%;
+        }
+
+        li {
+            list-style: none;
+        }
+    }
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+    html{
+        font-size: 2.4vw;
+    }
+}
+
+.top {
+    width: 100%;
+    @include flex(center);
+
+    @media screen and (max-width: 768px) {
+        .top-background {
+            height: 100%;
+
+            img {
+                width: unset !important;
+                height: 100% !important;
+            }
+        }
+        .top-textbox {
+            width: 80%;
+            height: 390px;
+        }
+    }
+
+    @media screen and (min-width: 769px) {
+        .top-background {
+            height: 80%;
+        }
+
+        .top-textbox {
+            width: 40vw;
+            height: 25vw;
+        }
+
+        #top-textbox {
+            width: 35vw;
+            height: 35vw
+        }
+
+    }
+    
+    .top-background {
+        position: absolute;
+        top: 0;
+        z-index: -10;
+        width: 100%;
+        overflow: hidden;
+        @include flex(center);
+
+
+        img {
+            width: 120%;
+            height: unset;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        
+        #top-about {
+            img {
+                position: absolute;
+                top: -110%;
+            }
+        }
+        
+    }
+
+    .top-textbox {
+        background: rgba(255,255,255,0.7);
+        @include flex(center);
+
+        .inner-top-text {
+            width: 80%;
+            text-align: center;
+            font-family: ab-anzu-r, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 2rem;
+
+            h2 {
+                margin-bottom: 40px;
+                font-size: 2.5rem;
+            }
+
+            hr {
+                width: 100%;
+                height: 1px;
+                background: black;
+                border: none;
+                margin-bottom: 35px;;
+            }
+
+            p {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .inner-top-text {
+                font-size: 1.2rem
+            }
+
+            h2 {
+                font-size: 2rem !important;
+            }
+        }
+    }
+}
+
+// アニメーションの設定
+body {
+    
+    .hoverScale :hover {
+        animation: hoverScale ease 0.3s forwards;
+    }
+    
+    @keyframes hoverScale {
+        0% {
+            transform: scale(1);
+        }
+    
+        100% {
+            transform: scale(1.2);
+        }
+    }
+    
+    .hoverBlack :hover {
+        animation: hoverBlack ease  0.4s forwards;
+    }
+    
+    @keyframes hoverBlack {
+        0% {
+            bacground: white;
+            color: #000000;
+        }
+    
+        100% {
+            background: #003366;
+            color: #ffffff;
+        }
+    }
+    
+}
+
+
+footer {
+
+    width: 100%;
+    padding: 0 5%;
+    border-top: solid 1px black;
+
+    h3, h4 {
+        font-size: 1.3rem;
+        font-family: ab-anzu-r, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    h5, h6 {
+        font-size: 1rem;
+        font-family: ab-babywalk, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    .footer-head {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 100px;
+
+        h3 {
+            font-size: 2rem;
+        }
+    }
+
+    ul {
+        width: 95%;
+        margin-left: auto;
+
+        li {
+            margin-top: 40px;
+        }
+    }
+
+
+
+    .footer-nav {
+        width: 100%;
+        margin-top: 50px;
+
+        .nav-button {
+            width: 80%;
+            border: solid 1px black;
+            border-radius: 3px;
+            margin: 15px auto;
+            @include flex(center);
+            
+
+            h5 {
+                font-size: 1.5rem;
+                margin: 5px 0;
+            }
+        }
+    }
+
+    @media screen and (min-width: 769px) {
+        .footer-nav {
+            @include flex(space-between);
+
+            .nav-button {
+                width: 25%;
+            }
+        }
+    }
+
+    .under-box {
+        border-top: solid 1px black;
+        margin-top: 50px;
+        padding-top: 10px;
+        @include flex(space-between);
+
+        hr {
+            width: 50%;
+        }
+    }
+
+}
+
+.contentTittle {
+    width: 40%;
+    margin: auto;
+    text-align: center;
+    font-size: 2rem;
+    font-family: ab-babywalk, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+
+// index.htmlの部分
+
+
+
+.nav-space {
+    width: 100%;
+
+    a {
+        text-decoration: none;
+    }
+
+    
+
+    @media screen and (max-width: 768px) {
+        .nav-box {
+            width: 100%;
+        }
+    }
+
+    @media screen and (min-width: 769px) {
+        .nav-box {
+            width: 34%;
+        }
+    }
+
+    .nav-box {
+        height: 100%;
+        overflow: hidden;
+        @include flex(center);
+        background-position: center;
+        background-size: cover;
+
+        .textbox {
+            @include flex(center);
+            background: rgba(255,255,255,0.7);
+            font-size: 2rem;
+            font-family: ab-anzu-r, sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        @media screen and (max-width: 768px) {
+            .textbox {
+                width: 70vw;
+                height: 46vw;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            .textbox {
+                width: 20vw;
+                height: 12vw;
+            }
+        }
+    }
+
+    #nav-about {
+        background-image: url("../image/topimage/about.png");
+    }
+
+    #nav-skill {
+        background-image: url("../image/topimage/skill.jpg")
+    }
+
+    #nav-projectN {
+        background-image: url("../image/topimage/projectN.jpg")
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .nav-space{
+        @include flex(center);
+    }
+}
+
+
+
+// about.htmlの部分
+
+
+.profile {
+    margin-top: 100px;
+    font-family: ab-babywalk, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    
+    .wr-profileBox {
+        width: 90%;
+        margin: 0 auto;
+        margin-top: 80px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    
+        .profileBox {
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.7);
+            text-align: center;
+            margin: 0 auto;
+            margin-bottom: 50px;
+            
+            .questionBox {
+                height: 16%;
+                margin-top: 22%;
+                font-size: 1.6rem;
+
+                h3 {
+                    margin-bottom: 20px;
+                }
+                hr {
+                    width: 80%;
+                    margin: 0 auto;
+                }
+            }
+
+            .answerBox {
+                height: 40%;
+
+                @include flex(center);
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+}
+
+
+.contact {
+    margin: 100px 0;
+    font-family: ab-babywalk, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    .contactSpace {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 60px;
+        @include flex(space-around);
+        flex-wrap: wrap;
+
+        .contactBox {
+            width: 300px;
+            height: 400px;
+            margin-top: 60px;
+            background: rgba(255,255,255,0.7);
+            @include flex(center);
+
+            .contact-way {
+                width: 90%;
+                height: 70%;
+                text-align: center;
+
+                h3 {
+                    font-size: 2.3rem;
+                    margin-bottom: 15px;
+                }
+
+                hr {
+                    width: 80%;
+                    margin: auto;
+                    margin-bottom: 45px;
+                }
+
+                p {
+                    line-height: 1.5;
+                    margin-bottom: 15px;
+                }
+
+                a, h4 {
+                    text-decoration: underline;
+                    color: black;
+                }
+
+            }
+        }
+    }
+}
+
+
+// skill.html.の部分
+
+.web, .wordpress, .projectN {
+    margin: 300px 0;
+    font-family: ab-babywalk, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.8rem;
+    text-align: center;
+
+    .content-tittle {
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        hr {
+            margin-bottom: 60px !important;
+        }
+        
+        .skill-icon {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 60px;
+            @include flex(space-between);
+
+            img {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    }
+    
+    
+    .opus-tittle {
+        width: 80%;
+        height: 80px;
+        margin: 0 auto;
+        margin-top: 200px;
+        background:rgba(255,255,255,0.7);
+        font-family: ta-hougan-k500, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 2.2rem;
+        @include flex(center)
+    }
+    
+}
+
+.content-box {
+    width: 100%;
+    margin-top: 180px;
+    
+    .content-text {
+        width: 90%;
+        margin: 0 5%;
+        text-align: left;
+        font-family: ronde-b, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        line-height: 1.2;
+        
+        .text-box {
+            width: 100%;
+            padding: 10% 5%;
+            background: rgba(255,255,255,0.7)
+        }
+    }
+    
+    .content-image {
+        width: 90%;
+        margin: 100px 5%;
+    }
+
+
+    .content-link {
+
+        text-align: center;
+
+        a {
+            color: black;
+        }
+
+        .content-link-box  {
+            width: 100%;
+            padding: 10% 5%;
+            background-color: rgba(255,255,255,0.7);
+
+            .link-tittle {
+                font-family: ta-hougan-k500, sans-serif;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 1.3rem;
+                line-height: 1.5;
+            }
+
+            .link-address {
+                margin-top: 15px;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and(min-width: 768px) {
+    .content-box {
+        @include flex(space-between);
+    }
+
+    .content-box > div {
+        width: 40%;
+    }
+}
+
+        
+.content-name {
+    margin-bottom: 50px;
+    font-family: ta-hougan-k500, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.8rem;
+    text-align: left;
+    
+    h3 {
+        margin-bottom: 10px;
+    }
+}
+
+
+.content-box > div > div {
+    margin-bottom: 130px;
+}    
