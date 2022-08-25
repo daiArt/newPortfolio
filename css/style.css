@@ -152,7 +152,7 @@ footer {
   footer .under-box {
     border-top: solid 1px black;
     margin-top: 50px;
-    padding-top: 10px;
+    padding: 2vh 0;
     display: flex;
     align-items: center;
     justify-content: space-between; }
